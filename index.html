@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Generator</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script defer src="app.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Password Generator</h1>
+
+    <div class="form-group">
+      <label for="siteSelect">Select Site:</label>
+      <select id="siteSelect" onchange="fillInputsFromDropdown()">
+        <option value="">-- Select --</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="siteName">Site Name:</label>
+      <input type="text" id="siteName" readonly />
+    </div>
+
+    <div class="form-group">
+      <label for="simplePassword">Simple Password:</label>
+      <input type="text" id="simplePassword" readonly />
+    </div>
+
+    <div class="form-group">
+      <label for="secretSalt">Enter Secret Salt:</label>
+      <input type="password" id="secretSalt" placeholder="Enter your secret" />
+    </div>
+
+    <div class="form-group">
+      <label for="length">Password Length:</label>
+      <input type="number" id="length" value="10" min="6" max="32" />
+    </div>
+
+    <button onclick="generatePassword()">Generate Password</button>
+
+    <div class="result" id="resultContainer" style="display:none;">
+      <strong>Generated Password:</strong>
+      
+      <div id="passwordWrapper">
+        <p id="passwordOutput"></p>
+        <span id="copyIcon" onclick="copyPassword()" title="Copy Password">📋</span>
+      </div>
+    
+      <p id="copyMsg" style="color:green; display:none;">Password copied to clipboard!</p>
+    </div>
+  </div>
+</body>
+</html>
