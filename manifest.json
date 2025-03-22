@@ -2,7 +2,7 @@
   "name": "Password Generator",
   "short_name": "PassGen",
   "description": "A private offline password generator",
-  "start_url": "/password-generator-pwa/index.html",
+  "start_url": "/Password-Generator/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
